@@ -11,7 +11,8 @@ x = 5
 
 # if x > 3:
 # print("hello world")
-
+if x > 3:
+    print("iasona noob")
 # if x > 3 : 
 #       print("hello world")
 
@@ -51,7 +52,7 @@ print(fun(x))
 
 greetings = 'Hello my name is Jason!'
 
-print(type(greetings)) 
+print(greetings) 
 # %% true or false ? 
 
 num = 5 
@@ -65,7 +66,16 @@ float_num = 5.88
 
 int_num = int(float_num)
 
+haris = float(int_num)
+
+lo = str(float_num) 
+
 print(int_num)
+
+print(float_num)
+
+print(haris)
+print(lo)
 
 #%% πρόσθεση 
 
@@ -88,10 +98,11 @@ apot = num_1 ** dynami
 #%% Ποια θα είναι η τιμή του χ ; 
 
 x = 5 
-
+ 
 x += 5 
 
 x **= 2 
+print(x)
 
 #%% Ασκηση 1 ο χρόνος ειναι χρήμα 
 

@@ -1,3 +1,29 @@
+#%% dictionaries
+
+thisdict = {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+print(thisdict)
+
+
+#%% 
+
+anotherdict = [
+   {
+   "brand": "Ford",
+   "model": "Mustang",
+   "year": 1964
+   },
+   { "brand": "Peugeot",
+   "model": "306",
+   "year": 1982
+   }
+]
+
+print(anotherdict[0]["brand"])
+
 
 #%% If statements 
 
@@ -126,6 +152,7 @@ patients_data = [
     {"Name": "Danae","WBC": 5.5, "RBC": 3.5, "Hct": 38},  # Patient 4
     {"Name": "Omar" ,"WBC": 8.0, "RBC": 4.5, "Hct": 53}   # Patient 5
 ]
+
 
 for patient in patients_data: 
    if(patient["RBC"] < normal_ranges["RBC"][0] and  patient["Hct"] < normal_ranges["Hct"][0]):
