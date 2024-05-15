@@ -286,8 +286,65 @@ def patient_bmi(weight , height):
    return bmi 
 
 patient_bmi(90 , 1.94)
+# %% Ανάλυση δεδομένων ασθενών 
+"""
+Ζήτείται να δημιουργήσετε μια συνάρτηση στην οποία τα δεδομένα που έρχονται ειναι μια λίστα απο ασθενής με την ηλικία 
+το γένος την πίεση ( συστολική διαστολική ) και την χοληστερόλη και μια ακόμα με τις φυσιολογικές τιμές της συστοικής 
+και διαστολικής πίεσης. Σε αυτή την συνάρτηση θα πρέπει για κάθε ασθενή 
+
+- Αν είναι πάνω απο 60 ή η χοληστερόλη του ειναι πάνω απο 210 να εμφανίζει στην κονσόλα ότι πρέπει να μπει στην ΜΕΘ
+- Να υπολογίζει την μέση συστολική και διαστολική πίεση όλων των ασθενών 
+- Αν η διαστολική πίεση ειναι κάτω απο το κανονικό να προσθέτει στην λίστα των ασθενών ότι ο ασθενής ειναι υποτασικός 
+αλλίως να προσθέτει ότι είναι κανονικός 
+- Να επιστρέφει την μέση συστολική και διαστολική πίεση των ασθενών
+
+Παρακάτω παρέχονται τα δεδομένα των ασθενών και η φυσιολογικές τιμές της πίεσης 
+
+"""
+
+patients_data = [
+    {"age": 55, "gender": "male", "blood_pressure": {"systolic": 120, "diastolic": 80}, "cholesterol": 180},
+    {"age": 65, "gender": "female", "blood_pressure": {"systolic": 140, "diastolic": 90}, "cholesterol": 220},
+    {"age": 45, "gender": "male", "blood_pressure": {"systolic": 130, "diastolic": 85}, "cholesterol": 190},
+    {"age": 70, "gender": "female", "blood_pressure": {"systolic": 150, "diastolic": 95}, "cholesterol": 210},
+    {"age": 60, "gender": "male", "blood_pressure": {"systolic": 135, "diastolic": 84}, "cholesterol": 240}
+]
+
+normal_blood_pressure = {"systolic": 120, "diastolic": 80}
+
+def analyze_patient_data(patients_data, normal_blood_pressure):
+    total_systolic = 0
+    total_diastolic = 0
+    count = 0
+    hypotensive_patients = []
+
+    for patient in patients_data:
+        age = patient["age"]
+        cholesterol = patient["cholesterol"]
+        systolic_pressure = patient["blood_pressure"]["systolic"]
+        diastolic_pressure = patient["blood_pressure"]["diastolic"]
+
+        if age > 60 or cholesterol > 210:
+            print(f"Patient with age {age} must enter the ICU.")
+
+        total_systolic += systolic_pressure
+        total_diastolic += diastolic_pressure
+        count += 1
+
+        if diastolic_pressure < normal_blood_pressure["diastolic"]:
+            hypotensive_patients.append(patient)
+        
+    average_systolic = total_systolic / count
+    average_diastolic = total_diastolic / count
+
+    for patient in hypotensive_patients:
+        print(f"Patient with age {patient['age']} is hypotensive.")
+    
+    return average_systolic, average_diastolic
+
+average_systolic, average_diastolic = analyze_patient_data(patients_data, normal_blood_pressure)
+
+print(f"Average systolic pressure: {average_systolic}")
+print(f"Average diastolic pressure: {average_diastolic}")
+
 # %%
-"""
-
-
-"""
