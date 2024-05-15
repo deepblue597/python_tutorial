@@ -38,7 +38,7 @@ else:
    print("a and b equal")
 
 
-#%% Άσκηση 
+#%% Άσκηση  1
 
 """
 Σε ένα νοσοκομείο σαν πρώτη μέρα μας ως γιατροί μας βάζουν να συμπληρώσουμε 
@@ -147,9 +147,9 @@ normal_ranges = {
 # Patient data
 patients_data = [
     {"Name": "John", "WBC": 9.5, "RBC": 3.9, "Hct": 35},  # Patient 1
-    {"Name": "Jason","WBC": 7.0, "RBC": 4.0, "Hct": 52},  # Patient 2
+    {"Name": "Jason","WBC": 3.0, "RBC": 4.0, "Hct": 52},  # Patient 2
     {"Name": "Kleopatra","WBC": 12.0, "RBC": 5.5, "Hct": 48},  # Patient 3
-    {"Name": "Danae","WBC": 5.5, "RBC": 3.5, "Hct": 38},  # Patient 4
+    {"Name": "Danae","WBC": 1, "RBC": 4.5, "Hct": 60},  # Patient 4
     {"Name": "Omar" ,"WBC": 8.0, "RBC": 4.5, "Hct": 53}   # Patient 5
 ]
 
@@ -157,3 +157,137 @@ patients_data = [
 for patient in patients_data: 
    if(patient["RBC"] < normal_ranges["RBC"][0] and  patient["Hct"] < normal_ranges["Hct"][0]):
       print(patient["Name"] , " Σιδηροπενική αναιμία")
+
+   elif(patient["RBC"] < normal_ranges["RBC"][0] and  patient["WBC"] < normal_ranges["WBC"][0]): 
+      print(patient["Name"] , " Αναιμία χρόνιας νόσου")
+
+   elif(patient["WBC"] < normal_ranges["WBC"][0] and  patient["Hct"] > normal_ranges["Hct"][1]): 
+      print(patient["Name"] , " Λοίμωξη ή φλεγμονή")
+
+   elif(patient["Hct"] > normal_ranges["Hct"][1] and  patient["RBC"] > normal_ranges["RBC"][1]): 
+      print(patient["Name"] , "Αφυδάτωση ή αληθή πολυκυτταραιμία")
+   else: 
+      print(patient["Name"] , "έχει θεραπευτεί")
+# %% while 
+
+i = 1 
+
+while i < 6 : 
+   print(i)
+   i += 1 
+
+
+# %%  Άσκηση ο βισματίας 
+
+"""
+Φτιάξε μια συνάρτηση στην οποία αν ο ασθενής δεν ονομάζεται Μιχάλης τότε ρωτάει συνεχώς πως λεγεστε; αλλιώς σταματάει την συνάρτηση  
+"""
+
+name = ""
+
+while name != "Μιχάλης": 
+   name = input("Πως λέγεστε;")
+
+# %% Άσκηση : Φακελάκι 
+
+"""
+έχετε πάει σε έναν γιατρό 10 φορές και θέλετε να δείτε πόσα χρήματα δώσατε συνολικά και κατα μέσο όρο στον γιατρό. Φτιάξε ένα πρόγραμμα που θα 
+ζητάει για 10 φορές τα χρήματα που δώσατε και θα βγάζει στο τέλος τα 2 αποτελέσματα. Μπορείτε να χρησιμοποιήσετε 
+την συνάρτηση mean() απο την βιβλιοθήκη Numpy. Για να κάνετε import την βιβλιοθήκη γράφετε 
+import numpy
+"""
+
+import numpy as np 
+
+money = [] 
+i = 0  
+while i < 10 : 
+   money.append(int(input("Πόσα χρήματα δώσατε;"))) 
+   i+= 1
+
+total = sum(money)
+mean = np.mean(money)
+print(mean)
+print(total)
+
+# %% Functions 
+
+def greeting(name): # 2 διαφορετικοί τρόποι 
+  print("Hello", name , ". Nice to meet you!")
+  print("Hello" + name + ". Nice to meet you!")
+
+greeting("Jason")
+
+
+#%% Mulitple arguments 
+
+
+def hello(name , age): 
+   print("Hello", name , ". Nice to meet you!")
+   print("I see your age is" , age)
+
+hello("Jason" , 23)
+# %% wrong call of function 
+
+hello("Jason")
+# %% Change order of args 
+
+hello(age= 23 , name= "Geore")
+# %%
+def hello(name = "Haris" , age): #error Non-default argument follows default argument
+   print("Hello", name , ". Nice to meet you!")
+   print("I see your age is" , age)
+
+# %% 
+
+def hello(age, name = "Haris"): 
+   print("Hello", name , ". Nice to meet you!")
+   print("I see your age is" , age)
+
+
+#%% 
+"""
+Θέλουμε να μετατρέψουμε την συνάρτηση στην άσκηση Where is House σε μια συνάρτηση 
+"""
+
+def where_is_house(patients_data , normal_ranges): 
+   for patient in patients_data: 
+      if(patient["RBC"] < normal_ranges["RBC"][0] and  patient["Hct"] < normal_ranges["Hct"][0]):
+         print(patient["Name"] , " Σιδηροπενική αναιμία")
+
+      elif(patient["RBC"] < normal_ranges["RBC"][0] and  patient["WBC"] < normal_ranges["WBC"][0]): 
+         print(patient["Name"] , " Αναιμία χρόνιας νόσου")
+
+      elif(patient["WBC"] < normal_ranges["WBC"][0] and  patient["Hct"] > normal_ranges["Hct"][1]): 
+         print(patient["Name"] , " Λοίμωξη ή φλεγμονή")
+
+      elif(patient["Hct"] > normal_ranges["Hct"][1] and  patient["RBC"] > normal_ranges["RBC"][1]): 
+         print(patient["Name"] , "Αφυδάτωση ή αληθή πολυκυτταραιμία")
+      else: 
+         print(patient["Name"] , "έχει θεραπευτεί")
+
+where_is_house(patients_data , normal_ranges)
+# %% 
+
+"""
+Μετατρέψτε την άσκηση σε συνάρτηση που να επιστρέφει το bmi του ασθενή 
+"""
+
+
+def patient_bmi(weight , height): 
+   bmi = weight/height**2 
+
+   if bmi < 20 : 
+      print("αδύνατος")
+   elif bmi < 30: 
+      print("Κανονικός")
+   else: 
+      print("υπερβαρος")
+   return bmi 
+
+patient_bmi(90 , 1.94)
+# %%
+"""
+
+
+"""
