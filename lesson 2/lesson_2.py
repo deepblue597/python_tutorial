@@ -310,13 +310,12 @@ patients_data = [
     {"age": 60, "gender": "male", "blood_pressure": {"systolic": 135, "diastolic": 84}, "cholesterol": 240}
 ]
 
-normal_blood_pressure = {"systolic": 120, "diastolic": 80}
+normal_blood_pressure = {"systolic": 120, "diastolic": 85}
 
 def analyze_patient_data(patients_data, normal_blood_pressure):
     total_systolic = 0
     total_diastolic = 0
     count = 0
-    hypotensive_patients = []
 
     for patient in patients_data:
         age = patient["age"]
@@ -332,13 +331,14 @@ def analyze_patient_data(patients_data, normal_blood_pressure):
         count += 1
 
         if diastolic_pressure < normal_blood_pressure["diastolic"]:
-            hypotensive_patients.append(patient)
-        
+             patient["hypotensive"] = "Υποτασικός"
+        else:
+            patient["hypotensive"] = "Κανονικός"
+        print("Patient with age ", age , "is",  patient["hypotensive"])
     average_systolic = total_systolic / count
     average_diastolic = total_diastolic / count
 
-    for patient in hypotensive_patients:
-        print(f"Patient with age {patient['age']} is hypotensive.")
+
     
     return average_systolic, average_diastolic
 
@@ -346,5 +346,6 @@ average_systolic, average_diastolic = analyze_patient_data(patients_data, normal
 
 print(f"Average systolic pressure: {average_systolic}")
 print(f"Average diastolic pressure: {average_diastolic}")
+
 
 # %%
