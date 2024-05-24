@@ -45,6 +45,12 @@ H μεταβλητή self χρησιμοποιείται για να μπορο�
 
 ### modify object properties
 
+Για να αλλάξουμε ένα τη μεταβλητή ενός αντικειμένου μπορούμε να το κάνουμε γράφοντας
+
+```
+p1.age = 34
+```
+
 ### delete object properties
 
 ### delete objects

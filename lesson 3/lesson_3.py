@@ -124,4 +124,14 @@ class Person:
 P1  = Person( "Konna" , "gka" , 23 , "Thessaloniki")
 
 P1.infolist()
-# %%
+# %% modify object properties 
+
+"""
+Αλλάξτε το όνομα του P1 και το επίθετο και καλέστε την κατάλληλη συνάρτηση 
+για να τα εμφανίσει στην κονσόλα 
+"""
+
+P1.name = "Jason"
+P1.age = 31 
+
+P1.greeting() 
