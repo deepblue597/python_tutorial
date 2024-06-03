@@ -137,7 +137,7 @@ tax = 0.18
 kratos = paycheck * tax 
 money_vas = paycheck - kratos
 print("χρήματα Βασιλη " , money_vas)
-print(kratos)
+print("χρήματα που κράτησε το κράτος", kratos)
 # %% Άσκηση 3 Πόσα έχω για το μήνα ; 
 
 """
